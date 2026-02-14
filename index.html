@@ -10,120 +10,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-/* ======== General ======== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Orbitron',sans-serif; background:#000; color:#fff; overflow-x:hidden; }
 
-body {
-  font-family: 'Orbitron', sans-serif;
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
-}
+.hero { position:relative; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; overflow:hidden; }
 
-/* ======== Hero Section ======== */
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-}
+/* Neon lines */
+.lines { position:absolute; top:0; left:0; width:100%; height:100%; background:repeating-linear-gradient(0deg, rgba(0,255,204,0.05), rgba(0,255,204,0.05) 1px, transparent 1px, transparent 3px); z-index:0; animation:moveLines 3s linear infinite; }
+@keyframes moveLines { 0%{background-position:0 0;} 100%{background-position:0 100px;} }
 
-/* Neon lines background */
-.lines {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0,255,204,0.05),
-    rgba(0,255,204,0.05) 1px,
-    transparent 1px,
-    transparent 3px
-  );
-  z-index: 0;
-  animation: moveLines 3s linear infinite;
-}
+h1 { font-size:60px; color:#00ffcc; text-shadow:0 0 5px #00ffcc,0 0 10px #00ffcc,0 0 20px #00ffcc,0 0 40px #00ffcc; animation:flicker 2s infinite; z-index:1; }
+@keyframes flicker { 0%,19%,21%,23%,25%,54%,56%,100%{text-shadow:0 0 5px #00ffcc,0 0 10px #00ffcc,0 0 20px #00ffcc,0 0 40px #00ffcc;} 20%,22%,24%,55%{text-shadow:0 0 2px #00ffcc,0 0 5px #00ffcc,0 0 10px #00ffcc,0 0 20px #00ffcc;} }
 
-@keyframes moveLines {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 100px; }
-}
+p { font-size:18px; opacity:0.8; margin-top:10px; z-index:1; }
 
-/* ======== Headline ======== */
-h1 {
-  font-size: 60px;
-  color: #00ffcc;
-  text-shadow: 
-    0 0 5px #00ffcc, 
-    0 0 10px #00ffcc, 
-    0 0 20px #00ffcc, 
-    0 0 40px #00ffcc;
-  animation: flicker 2s infinite;
-  z-index: 1;
-}
+.btn { display:inline-block; margin-top:30px; padding:15px 45px; border:2px solid #00ffcc; color:#00ffcc; text-decoration:none; font-weight:bold; transition:0.3s; z-index:1; }
+.btn:hover { background:#00ffcc; color:black; box-shadow:0 0 20px #00ffcc; }
 
-/* Flicker animation */
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow: 0 0 5px #00ffcc,0 0 10px #00ffcc,0 0 20px #00ffcc,0 0 40px #00ffcc;
-  }
-  20%, 22%, 24%, 55% {
-    text-shadow: 0 0 2px #00ffcc,0 0 5px #00ffcc,0 0 10px #00ffcc,0 0 20px #00ffcc;
-  }
-}
+footer { position:absolute; bottom:0; width:100%; padding:15px; background:#111; font-size:14px; opacity:0.6; }
 
-/* ======== Paragraph ======== */
-p {
-  font-size: 18px;
-  opacity: 0.8;
-  margin-top: 10px;
-  z-index: 1;
-}
-
-/* ======== Button ======== */
-.btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 15px 45px;
-  border: 2px solid #00ffcc;
-  color: #00ffcc;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-  z-index: 1;
-}
-
-.btn:hover {
-  background: #00ffcc;
-  color: black;
-  box-shadow: 0 0 20px #00ffcc;
-}
-
-/* ======== Footer ======== */
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 15px;
-  background: #111;
-  font-size: 14px;
-  opacity: 0.6;
-}
-
-/* Ensure hero children above lines */
-.hero * {
-  position: relative;
-  z-index: 1;
-}
+.hero * { position:relative; z-index:1; }
 </style>
 </head>
 
